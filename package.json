@@ -51,6 +51,8 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@types/eslint": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
@@ -79,14 +81,14 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "commitlint":{
-    "extends":[
+  "commitlint": {
+    "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "husky":{
-    "hooks":{
-      "commit-msg":"commitlint -E HUSKY_GIT_PARAMS"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
