@@ -5,3 +5,8 @@
 - npm install -S antd@4.11.2（切回淘宝源）
 
 - npm install -D @babel/core@7.12.10 @babel/preset-env@7.12.11 @babel/preset-react@7.12.10 @babel/preset-typescript@7.12.7 @types/eslint@7.2.6 @typescript-eslint/eslint-plugin@4.14.1 @typescript-eslint/parser@4.14.1 autoprefixer@10.2.4 babel-loader@8.2.2 babel-plugin-import@1.13.3 css-loader@5.0.1 eslint@7.18.0 eslint-plugin-react@7.22.0 html-webpack-plugin@4.5.1 less@4.1.0 less-loader@7.3.0 lib-flexible@0.3.2 postcss-loader@4.2.0 px2rem-loader@0.1.9 style-loader@2.0.0  webpack@5.19.0 webpack-cli@4.4.0 webpack-dev-server@3.11.2
+
+
+## todo
+- eslint 失效
+- git 校验失败
