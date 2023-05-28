@@ -61,13 +61,14 @@
     "babel-plugin-import": "^1.13.3",
     "css-loader": "^5.0.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.18.0",
+    "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^4.5.1",
     "husky": "^8.0.3",
     "less": "^4.1.0",
     "less-loader": "^7.3.0",
     "lib-flexible": "^0.3.2",
+    "lint-staged": "^13.2.2",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^4.2.0",
     "px2rem-loader": "^0.1.9",
@@ -81,14 +82,19 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "commitlint":{
-    "extends":[
+  "commitlint": {
+    "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "husky":{
-    "hooks":{
-      "commit-msg":"commitlint -E HUSKY_GIT_PARAMS"
+  "husky": {
+    "hooks": {
+      "prev-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit":"conventional-changelog -p angular -i CHANGELOG.md -s"
     }
+  },
+  "lint-staged": {
+    "*.tsx": "eslint --fix"
   }
 }
