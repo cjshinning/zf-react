@@ -1,14 +1,25 @@
 
 import React, { PropsWithChildren } from 'react';
-import { connect } from 'react-redux';
+import { connect, MapStateToProps } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import { RootState, HomeState } from '@/store/reducers';
+import HomeHeader from './components/HomeHeader';
+import actions from '@/store/actions/home';
 
 import './index.less';
-type Prop = PropsWithChildren<RouteComponentProps> & HomeState;
+// type StateProps = ReturnType<typeof MapStateToProps>;
+type DispatchProps = typeof actions;
+type Prop = PropsWithChildren<RouteComponentProps> & HomeState & DispatchProps;
 
 function Home(props: Prop) {
-  return <div>{props.title}</div>
+  return (
+    <>
+      <HomeHeader
+        currentCategory={props.currentCategory}
+        setCurrentCategory={actions.setCurrentCategory}
+      />
+    </>
+  )
 }
 
 function mapStateToProps(state: RootState): HomeState {
@@ -16,5 +27,5 @@ function mapStateToProps(state: RootState): HomeState {
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps, actions
 )(Home);
