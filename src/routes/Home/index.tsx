@@ -1,6 +1,6 @@
 
 import React, { PropsWithChildren } from 'react';
-import { connect, MapStateToProps } from 'react-redux';
+import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import { RootState, HomeState } from '@/store/reducers';
 import HomeHeader from './components/HomeHeader';
@@ -16,7 +16,7 @@ function Home(props: Prop) {
     <>
       <HomeHeader
         currentCategory={props.currentCategory}
-        setCurrentCategory={actions.setCurrentCategory}
+        setCurrentCategory={props.setCurrentCategory}
       />
     </>
   )

@@ -3,11 +3,31 @@ import './index.less';
 import { BarsOutlined } from '@ant-design/icons'
 import logo from '@/assets/images/logo.png';
 import classnames from 'classnames';
+import { Transition } from 'react-transition-group';
 
 interface Props {
   currentCategory: string;
   setCurrentCategory: (currentCategory: string) => void
 }
+
+const duration = 1000;  //动画持续的时间
+const defaultStyle = {  //默认样式
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0
+}
+interface TransitionStyles {
+  entering: React.CSSProperties,
+  entered: React.CSSProperties,
+  exiting: React.CSSProperties,
+  exited: React.CSSProperties,
+}
+const transitionStyles: TransitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+}
+
 function HomeHeader(props: Props) {
   let [isMenuVisible, setIsMenuVisible] = React.useState(false);
   const setCurrentCategory = (event: React.MouseEvent<HTMLUListElement>) => {
@@ -22,21 +42,36 @@ function HomeHeader(props: Props) {
         <img src={logo} />
         <BarsOutlined onClick={() => setIsMenuVisible(true)} />
       </div>
-      {
-        isMenuVisible && <ul
-          className='category'
-          onClick={setCurrentCategory}>
-          <li data-category="all" className={
-            classnames({ active: props.currentCategory === 'all' })
-          }>全部</li>
-          <li data-category="react" className={
-            classnames({ active: props.currentCategory === 'react' })
-          }>React</li>
-          <li data-category="vue" className={
-            classnames({ active: props.currentCategory === 'vue' })
-          }>Vue</li>
-        </ul>
-      }
+      <Transition
+        in={isMenuVisible}
+        timeout={duration}
+      >
+        {
+          (state: keyof TransitionStyles) => (
+            <ul
+              className="category"
+              onClick={setCurrentCategory}
+              style={
+                {
+                  ...defaultStyle,
+                  ...transitionStyles[state]
+                }
+              }
+            >
+              <li data-category="all" className={
+                classnames({ active: props.currentCategory === 'all' })
+              }>全部</li>
+              <li data-category="react" className={
+                classnames({ active: props.currentCategory === 'react' })
+              }>React</li>
+              <li data-category="vue" className={
+                classnames({ active: props.currentCategory === 'vue' })
+              }>Vue</li>
+            </ul>
+          )
+        }
+      </Transition>
+
     </header>
   )
 }
