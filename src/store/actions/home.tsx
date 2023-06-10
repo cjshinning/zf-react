@@ -1,5 +1,6 @@
 import * as types from '@/store/action-types';
 import { AnyAction } from 'redux';
+console.log('111---------------');
 const actions = {
   setCurrentCategory(currentCategory: string): AnyAction {
     return { type: types.SET_CURRENT_CATEGORY, payload: currentCategory };

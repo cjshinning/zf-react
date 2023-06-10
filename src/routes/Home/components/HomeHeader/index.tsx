@@ -3,7 +3,7 @@ import './index.less';
 import { BarsOutlined } from '@ant-design/icons'
 import logo from '@/assets/images/logo.png';
 import classnames from 'classnames';
-import { Transition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 interface Props {
   currentCategory: string;
@@ -42,7 +42,7 @@ function HomeHeader(props: Props) {
         <img src={logo} />
         <BarsOutlined onClick={() => setIsMenuVisible(true)} />
       </div>
-      <Transition
+      <CSSTransition
         in={isMenuVisible}
         timeout={duration}
       >
@@ -70,7 +70,7 @@ function HomeHeader(props: Props) {
             </ul>
           )
         }
-      </Transition>
+      </CSSTransition>
 
     </header>
   )
