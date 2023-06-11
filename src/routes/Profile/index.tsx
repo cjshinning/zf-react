@@ -14,6 +14,7 @@ type Prop = PropsWithChildren<RouteComponentProps> & StateProps & DispatchProps;
 
 function Profile(props: Prop) {
   useEffect(() => {
+    console.log(props, '&&&&&&&&&&&&&&&&&');
     props.validate().catch((error: AxiosError) => message.error(error.message));
   }, []);
   let content = null;
@@ -24,11 +25,10 @@ function Profile(props: Prop) {
     content = (
       <div className='user-info'>
         <Descriptions>
-          <Descriptions.Item label="用户名">Jenny</Descriptions.Item>
-          <Descriptions.Item label="手机号">1340000000</Descriptions.Item>
-          <Descriptions.Item label="邮箱">1340000000@163.com</Descriptions.Item>
+          <Descriptions.Item label="用户名">{props.user.username}</Descriptions.Item>
+          <Descriptions.Item label="邮箱">{props.user.email}</Descriptions.Item>
         </Descriptions>
-        <Button type='primary'>退出登录</Button>
+        <Button type='primary' onClick={() => props.logout()}>退出登录</Button>
       </div>
     )
   } else if (props.loginState === LOGIN_TYPES.UNLOGIN) {
@@ -47,8 +47,8 @@ function Profile(props: Prop) {
   }
 
   return (
-    <section>
-      <NavBar history={props.history}>个人中心</NavBar>
+    <section className='profile'>
+      <NavBar>个人中心</NavBar>
       {content}
     </section>
   )

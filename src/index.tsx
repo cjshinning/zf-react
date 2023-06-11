@@ -8,6 +8,8 @@ import Tabs from './components/Tabs';
 import Home from './routes/Home';
 import Mine from './routes/Mine';
 import Profile from './routes/Profile';
+import Register from './routes/Register';
+import Login from './routes/Login';
 import history from './store/history';
 import './assets/style/global.less';
 
@@ -29,6 +31,8 @@ ReactDOM.render(
           <Route exact={true} path="/" component={Home} />
           <Route path="/mine" component={Mine} />
           <Route path="/profile" component={Profile} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
           <Redirect to="/" />
         </Switch>
       </main>

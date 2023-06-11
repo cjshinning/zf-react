@@ -1,11 +1,12 @@
 import { AnyAction } from 'redux';
 import LOGIN_TYPES from '@/typing/login-types';
 import * as types from '@/store/action-types';
+import { User } from '@/typing/user';
 
 export interface ProfileState {
   title: string;
   loginState: LOGIN_TYPES;  //获取当前用户的登录状态  未验证/未登录/登录
-  user: any;  //如果成功了，会把已经登录的用户信息放在这里
+  user: User;  //如果成功了，会把已经登录的用户信息放在这里
   error: string | null //会把失败的原因放在这里
 }
 
@@ -24,6 +25,8 @@ function reducer(state: ProfileState = initialState, action: AnyAction): Profile
       } else {
         return { ...state, loginState: LOGIN_TYPES.UNLOGIN, user: null, error: action.payload }
       }
+    case types.LOGOUT:
+      return { ...state, loginState: LOGIN_TYPES.UNLOGIN, user: null, error: null }
     default:
       return state;
   }

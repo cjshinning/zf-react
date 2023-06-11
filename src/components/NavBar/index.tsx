@@ -1,11 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import './index.less';
 import { LeftOutlined } from '@ant-design/icons';
-import { History } from 'history';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-type Props = PropsWithChildren<{
-  history: History
-}>;
+type Props = PropsWithChildren<RouteComponentProps>;
 function NavBar(props: Props) {
   return (
     <div className='nav-header'>
@@ -16,4 +14,4 @@ function NavBar(props: Props) {
   )
 }
 
-export default NavBar;
+export default withRouter(NavBar);
