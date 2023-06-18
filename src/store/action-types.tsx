@@ -5,3 +5,5 @@ export const VALIDATE = 'VALIDATE';
 export const LOGOUT = 'LOGOUT';
 
 export const CHAN_AVATAR = 'CHAN_AVATAR';
+
+export const GET_SLIDERS = 'GET_SLIDERS';
