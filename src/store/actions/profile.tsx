@@ -42,6 +42,12 @@ const actions = {
       dispatch({ type: types.LOGOUT }); //派发一个退出的仓库
       dispatch(push('/login'));
     }
+  },
+  changeAvatar(avatar: string) {
+    return {
+      type: types.CHAN_AVATAR,
+      payload: avatar
+    }
   }
 }
 

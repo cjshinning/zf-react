@@ -49,3 +49,19 @@ export function register<T>(values: RegisertPayload) {
     })
   })
 }
+
+export function changeAvatar() {
+  // return axios.post('user/uploadAvatar');
+  return new Promise((resolve, reject) => {
+    // 验证通过
+    resolve({
+      success: true,
+      data: 'https://img3.mukewang.com/5333a2590001069f02000200-100-100.jpg'
+    })
+    // 验证不通过
+    // reject({
+    //   success: false,
+    //   message: "上传多雾"
+    // })
+  })
+}

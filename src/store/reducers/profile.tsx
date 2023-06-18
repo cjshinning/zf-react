@@ -27,6 +27,8 @@ function reducer(state: ProfileState = initialState, action: AnyAction): Profile
       }
     case types.LOGOUT:
       return { ...state, loginState: LOGIN_TYPES.UNLOGIN, user: null, error: null }
+    case types.CHAN_AVATAR:
+      return { ...state, user: { ...state.user, avatar: action.payload } }
     default:
       return state;
   }
