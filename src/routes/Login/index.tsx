@@ -7,7 +7,7 @@ import './index.less';
 import { Form, Input, Button, message } from 'antd';
 import actions from '@/store/actions/profile';
 import { UserAddOutlined, LockOutlined, MailFilled, MailOutlined } from '@ant-design/icons';
-import { LoginPayload } from '@/typing/user';
+import { LoginPayload } from '@/typings/user';
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof actions;
 type Prop = PropsWithChildren<RouteComponentProps> & StateProps & DispatchProps;

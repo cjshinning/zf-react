@@ -1,7 +1,7 @@
 import * as types from '@/store/action-types';
 import { AnyAction } from 'redux';
 import { login, register, validate } from '@/api/profile';
-import { LoginPayload, LoginResult, RegisertPayload, RegisterResult } from '@/typing/user';
+import { LoginPayload, LoginResult, RegisertPayload, RegisterResult } from '@/typings/user';
 import { push } from 'connected-react-router';
 import { message } from 'antd';
 const actions = {

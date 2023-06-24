@@ -1,13 +1,13 @@
 import React from 'react';
 import './index.less';
 import { Carousel } from 'antd';
-import Slider from '@/typing/slider';
+import Slider from '@/typings/slider';
 interface Props {
   sliders: Slider[],
   getSliders: Function
 }
 
-function HomeSlider(props: Props) {
+function HomeSliders(props: Props) {
   React.useEffect(() => {
     if (props.sliders.length === 0) {
       props.getSliders();
@@ -26,4 +26,4 @@ function HomeSlider(props: Props) {
   )
 }
 
-export default HomeSlider;
+export default HomeSliders;

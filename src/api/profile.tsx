@@ -1,5 +1,5 @@
 import axios from './';
-import { LoginPayload, RegisertPayload } from '@/typing/user';
+import { LoginPayload, RegisertPayload } from '@/typings/user';
 
 export function validate() {
   // 调接口改成写死的假数据

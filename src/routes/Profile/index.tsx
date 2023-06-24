@@ -7,7 +7,7 @@ import NavBar from '@/components/NavBar';
 import actions from '@/store/actions/profile';
 import { message, Descriptions, Button, Alert, Upload } from 'antd';
 import { AxiosError } from 'axios';
-import LOGIN_TYPES from '@/typing/login-types';
+import LOGIN_TYPES from '@/typings/login-types';
 import { LoadingOutlined, UploadOutlined } from '@ant-design/icons';
 import { UploadChangeParam } from 'antd/lib/upload';
 type StateProps = ReturnType<typeof mapStateToProps>;

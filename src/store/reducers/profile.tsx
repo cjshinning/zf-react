@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
-import LOGIN_TYPES from '@/typing/login-types';
+import LOGIN_TYPES from '@/typings/login-types';
 import * as types from '@/store/action-types';
-import { User } from '@/typing/user';
+import { User } from '@/typings/user';
 
 export interface ProfileState {
   title: string;

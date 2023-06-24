@@ -19,4 +19,67 @@ export function getSliders() {
   })
 }
 
-
+export function getLessions(
+  currentCategory: string,//当前分类
+  offset: number,//偏移量
+  limit: number//每页的条数
+) {
+  // return axios.get(`/lession/list?category=${currentCategory}&offset=${offset}&limit=${limit}`);
+  return new Promise((resolve, reject) => {
+    // 验证通过
+    setTimeout(() => {
+      resolve({
+        success: true,
+        data: {
+          list: [{
+            id: '1001',
+            order: 1,
+            category: 'react',
+            price: '$1000元',
+            title: '1.React全栈架构',
+            video: '',
+            poster: 'https://img2.37wanimg.com/2022/09/23142814PkZ5W.jpg',
+            url: ''
+          }, {
+            id: '1002',
+            order: 2,
+            category: 'react',
+            price: '$1000元',
+            title: '2.React全栈架构',
+            video: '',
+            poster: 'https://img2.37wanimg.com/2022/09/231428081OP54.jpg',
+            url: ''
+          }, {
+            id: '1003',
+            order: 3,
+            category: 'react',
+            price: '$1000元',
+            title: '3.React全栈架构',
+            video: '',
+            poster: 'https://img2.37wanimg.com/2022/09/23142802glhuM.jpg',
+            url: ''
+          }, {
+            id: '1004',
+            order: 4,
+            category: 'react',
+            price: '$1000元',
+            title: '4.React全栈架构',
+            video: '',
+            poster: 'https://img2.37wanimg.com/2022/09/23142757XlqRt.jpg',
+            url: ''
+          }, {
+            id: '1005',
+            order: 5,
+            category: 'react',
+            price: '$1000元',
+            title: '5.React全栈架构',
+            video: '',
+            poster: 'https://img2.37wanimg.com/2022/09/231427530dsYq.jpg',
+            url: ''
+          }],
+          hasMore: true
+        }
+      })
+    }, 1000)
+  })
+}
