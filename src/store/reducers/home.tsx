@@ -42,10 +42,22 @@ function reducer(state: HomeState = initialState, action: AnyAction): HomeState 
       return {
         ...state,
         lessions: {
-          ...state.lessions, loading: false,
+          ...state.lessions,
+          loading: false,
           hasMore: action.payload.hasMore,
           list: [...state.lessions.list, ...action.payload.list],
           offset: state.lessions.offset + action.payload.list.length
+        }
+      };
+    case types.REFRESH_LESSIONS:
+      return {
+        ...state,
+        lessions: {
+          ...state.lessions,
+          loading: false,
+          hasMore: action.payload.hasMore,
+          list: action.payload.list,
+          offset: action.payload.list.length
         }
       };
     default:

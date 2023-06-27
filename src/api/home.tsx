@@ -37,7 +37,7 @@ export function getLessions(
             category: 'react',
             price: '$1000元',
             title: '1.React全栈架构',
-            video: '',
+            video: 'https://video.37wanimg.com/rydts/202012/pc_role_1.mp4',
             poster: 'https://img2.37wanimg.com/2022/09/23142814PkZ5W.jpg',
             url: ''
           }, {
@@ -46,7 +46,7 @@ export function getLessions(
             category: 'react',
             price: '$1000元',
             title: '2.React全栈架构',
-            video: '',
+            video: 'https://video.37wanimg.com/rydts/202007/02_03.mp4',
             poster: 'https://img2.37wanimg.com/2022/09/231428081OP54.jpg',
             url: ''
           }, {
@@ -55,7 +55,7 @@ export function getLessions(
             category: 'react',
             price: '$1000元',
             title: '3.React全栈架构',
-            video: '',
+            video: 'https://video.37wanimg.com/rydts/202112/pc-role-4.mp4',
             poster: 'https://img2.37wanimg.com/2022/09/23142802glhuM.jpg',
             url: ''
           }, {
@@ -64,7 +64,7 @@ export function getLessions(
             category: 'react',
             price: '$1000元',
             title: '4.React全栈架构',
-            video: '',
+            video: 'https://video.37wanimg.com/rydts/202007/02_04.mp4',
             poster: 'https://img2.37wanimg.com/2022/09/23142757XlqRt.jpg',
             url: ''
           }, {
@@ -73,11 +73,36 @@ export function getLessions(
             category: 'react',
             price: '$1000元',
             title: '5.React全栈架构',
-            video: '',
+            video: 'https://video.37wanimg.com/rydts/202112/video-20211228-1.mp4',
             poster: 'https://img2.37wanimg.com/2022/09/231427530dsYq.jpg',
             url: ''
           }],
           hasMore: true
+        }
+      })
+    }, 1000)
+  })
+}
+
+
+export function getLession<T>(
+  id: string
+) {
+  // return axios.get<T,T>(`/lession/${id}`);
+  return new Promise((resolve, reject) => {
+    // 验证通过
+    setTimeout(() => {
+      resolve({
+        success: true,
+        data: {
+          id: '1001',
+          order: 1,
+          category: 'react',
+          price: '$1000元',
+          title: '1.React全栈架构',
+          video: 'https://video.37wanimg.com/rydts/202012/pc_role_1.mp4',
+          poster: 'https://img2.37wanimg.com/2022/09/23142814PkZ5W.jpg',
+          url: ''
         }
       })
     }, 1000)

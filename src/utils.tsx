@@ -1,5 +1,4 @@
 export function loadMore(element: HTMLElement, callback: Function) {
-  console.log(123)
   function _loadMore() {
     let clientHeight = element.clientHeight;  //容器的高度
     let scrollTop = element.scrollTop;

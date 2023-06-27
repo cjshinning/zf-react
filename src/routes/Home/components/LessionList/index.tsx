@@ -26,7 +26,7 @@ function HomeSliders(props: Props) {
       >
         {
           props.lessions.list.map((lession: Lession, index: number) => (
-            <Link key={lession.id} to={{ pathname: `/detai/${lession.id}`, state: lession }}>
+            <Link key={lession.id} to={{ pathname: `/detail/${lession.id}`, state: lession }}>
               <Card hoverable={true} style={{ width: '100%' }}
                 cover={<img src={lession.poster} />}
               >

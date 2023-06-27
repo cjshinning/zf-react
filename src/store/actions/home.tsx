@@ -11,7 +11,7 @@ const actions = {
       payload: getSliders()
     }
   },
-  getLessions() { //获取课程数据
+  getLessions() { //获取下一页课程数据
     return function (dispatch: Function, getState: Function) {
       (async function () {
         let { currentCategory, lessions: { hasMore, offset, limit, loading } } = getState().home;
@@ -20,6 +20,19 @@ const actions = {
           dispatch({ type: types.SET_LESSION_LOADING, payload: true }); //加载状态改为true
           let result = await getLessions(currentCategory, offset, limit);
           dispatch({ type: types.SET_LESSIONS, payload: result.data }); //设置新的课程数据
+        }
+      })()
+    }
+  },
+  refreshLessions() { //重新获取第一页的数据，读取最新的分类
+    return function (dispatch: Function, getState: Function) {
+      (async function () {
+        let { currentCategory, lessions: { limit, loading } } = getState().home;
+        // 如果的确有更多的数据，并且不是处于加载中的话，就可以加载数据了
+        if (!loading) {
+          dispatch({ type: types.SET_LESSION_LOADING, payload: true }); //加载状态改为true
+          let result = await getLessions(currentCategory, 0, limit);
+          dispatch({ type: types.REFRESH_LESSIONS, payload: result.data }); //设置新的课程数据
         }
       })()
     }

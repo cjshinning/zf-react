@@ -7,7 +7,8 @@ import { CSSTransition } from 'react-transition-group';
 
 interface Props {
   currentCategory: string;
-  setCurrentCategory: (currentCategory: string) => void
+  setCurrentCategory: (currentCategory: string) => void;
+  refreshLessions: Function
 }
 
 const duration = 1000;  //动画持续的时间
@@ -34,6 +35,7 @@ function HomeHeader(props: Props) {
     let target: HTMLUListElement = event.target as HTMLUListElement;
     const category = target.dataset.category;  //获取事件源对象对应的自定义属性的值 all reat vue
     props.setCurrentCategory(category);
+    props.refreshLessions();  //刷新课程
     setIsMenuVisible(false);
   }
   return (

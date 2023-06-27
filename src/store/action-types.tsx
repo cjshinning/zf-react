@@ -12,3 +12,5 @@ export const GET_SLIDERS = 'GET_SLIDERS';
 export const SET_LESSIONS = 'SET_LESSIONS';
 //设置加载课程列表的状态 false true false
 export const SET_LESSION_LOADING = 'SET_LESSION_LOADING';
+// 刷新课程列表
+export const REFRESH_LESSIONS = 'REFRESH_LESSION';

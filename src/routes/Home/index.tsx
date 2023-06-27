@@ -23,6 +23,7 @@ function Home(props: Prop) {
       <HomeHeader
         currentCategory={props.currentCategory}
         setCurrentCategory={props.setCurrentCategory}
+        refreshLessions={props.refreshLessions}
       />
       <div className='home-container' ref={homContainerRef}>
         <HomeSliders sliders={props.sliders} getSliders={props.getSliders} />
