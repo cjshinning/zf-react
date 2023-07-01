@@ -7,7 +7,8 @@ import HomeSliders from './components/HomeSliders';
 import LessionList from './components/LessionList';
 import actions from '@/store/actions/home';
 import './index.less';
-import { loadMore } from '@/utils';
+import { loadMore, downRefresh } from '@/utils';
+import { Spin } from 'antd';
 // type StateProps = ReturnType<typeof MapStateToProps>;
 type DispatchProps = typeof actions;
 type Prop = PropsWithChildren<RouteComponentProps> & HomeState & DispatchProps;
@@ -17,9 +18,11 @@ function Home(props: Prop) {
   const lessionListRef = React.useRef(null);
   React.useEffect(() => {
     loadMore(homContainerRef.current, props.getLessions);
+    downRefresh(homContainerRef.current, props.refreshLessions);
   }, [])
   return (
     <>
+      <Spin size='large' />
       <HomeHeader
         currentCategory={props.currentCategory}
         setCurrentCategory={props.setCurrentCategory}
