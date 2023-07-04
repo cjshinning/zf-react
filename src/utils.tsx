@@ -75,7 +75,7 @@ export function downRefresh(element: HTMLElement, callback: Function) {
 }
 
 // 节流
-function throttle(func: Function, delay: number) {
+export function throttle(func: Function, delay: number) {
   let prev = Date.now();
   return function () {
     let context = this;

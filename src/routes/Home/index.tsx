@@ -7,7 +7,7 @@ import HomeSliders from './components/HomeSliders';
 import LessionList from './components/LessionList';
 import actions from '@/store/actions/home';
 import './index.less';
-import { loadMore, downRefresh } from '@/utils';
+import { loadMore, downRefresh, throttle } from '@/utils';
 import { Spin } from 'antd';
 // type StateProps = ReturnType<typeof MapStateToProps>;
 type DispatchProps = typeof actions;
@@ -15,10 +15,12 @@ type Prop = PropsWithChildren<RouteComponentProps> & HomeState & DispatchProps;
 
 function Home(props: Prop) {
   const homContainerRef = React.useRef(null);
-  const lessionListRef = React.useRef(null);
+  const lessionListRef = React.useRef(null);  //用来实现虚拟列表
   React.useEffect(() => {
     loadMore(homContainerRef.current, props.getLessions);
     downRefresh(homContainerRef.current, props.refreshLessions);
+    lessionListRef.current();
+    homContainerRef.current.addEventListener('scroll', throttle(lessionListRef.current, 30));
   }, [])
   return (
     <>
@@ -33,6 +35,8 @@ function Home(props: Prop) {
         <LessionList
           lessions={props.lessions}
           getLessions={props.getLessions}
+          homeContainerRef={homContainerRef}
+          ref={lessionListRef}
         />
       </div>
     </>
